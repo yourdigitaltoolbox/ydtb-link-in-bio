@@ -1,14 +1,14 @@
 <?php
 
-namespace PluginNamespace\Providers;
+namespace YDTBC\Providers;
 
 class BlockServiceProvider implements Provider
 {
     public function register()
     {
-        $entrypoints_manifest = realpath(__DIR__.'/../../dist/entrypoints.json');
+        $entrypoints_manifest = realpath(__DIR__ . '/../../dist/entrypoints.json');
 
-        if (! $entrypoints_manifest) {
+        if (!$entrypoints_manifest) {
             return;
         }
 

@@ -1,8 +1,8 @@
 <?php
 
-namespace PluginNamespace\Providers;
+namespace YDTBC\Providers;
 
-class PluginNameServiceProvider implements Provider
+class BusinessCardServiceProvider implements Provider
 {
     protected function providers()
     {

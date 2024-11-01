@@ -1,10 +1,10 @@
 {
-  "name": "@roots/clover",
+  "name": "ydtb-wp/ydtb-business-card",
   "version": "0.0.1",
   "license": "MIT",
   "private": true,
-  "description": "Clover",
-  "homepage": "https://roots.io/",
+  "description": "Business Card Linktree for BuddyBoss",
+  "homepage": "https://yourdigitaltoolbox.com",
   "licenses": [
     {
       "type": "MIT",
@@ -13,8 +13,8 @@
   ],
   "authors": [
     {
-      "name": "Roots",
-      "email": "team@roots.io"
+      "name": "John Kraczek",
+      "email": "john@yourdigitaltoolbox.com"
     }
   ],
   "scripts": {

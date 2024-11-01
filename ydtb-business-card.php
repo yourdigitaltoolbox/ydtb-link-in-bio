@@ -1,18 +1,18 @@
 <?php
 /**
- * Plugin Name:     Clover
- * Plugin URI:      https://github.com/roots/clover
- * Description:     WordPress starter plugin
+ * Plugin Name:     BuddyBoss Profile Business Card
+ * Plugin URI:      https://yourdigitaltoolbox.com/
+ * Description:     A plugin to add a linktree style business card to the BuddyBoss profile.
  * Version:         0.0.1
- * Author:          Roots
- * Author URI:      https://roots.io/
+ * Author:          John Kraczek
+ * Author URI:      https://yourdigitaltoolbox.com/
  * License:         MIT License
- * Text Domain:     clover
+ * Text Domain:     ydtb-business-card
  * Domain Path:     /resources/lang
  */
-require_once __DIR__.'/vendor/autoload.php';
+require_once __DIR__ . '/vendor/autoload.php';
 
-$clover = new PluginNamespace\Providers\PluginNameServiceProvider;
-$clover->register();
+$ydtbbc = new YDTBC\Providers\BusinessCardServiceProvider;
+$ydtbbc->register();
 
-add_action('init', [$clover, 'boot']);
+add_action('init', [$ydtbbc, 'boot']);

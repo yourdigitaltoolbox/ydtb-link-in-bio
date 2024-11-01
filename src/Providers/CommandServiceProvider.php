@@ -1,17 +1,17 @@
 <?php
 
-namespace PluginNamespace\Providers;
+namespace YDTBC\Providers;
 
-use PluginNamespace\Commands\PluginNameCommand;
+use YDTBC\Commands\BusinessCardCommand;
 
 class CommandServiceProvider implements Provider
 {
     public function register()
     {
-        if (! defined('WP_CLI') || ! WP_CLI) {
+        if (!defined('WP_CLI') || !WP_CLI) {
             return;
         }
 
-        \WP_CLI::add_command('plugin-name', PluginNameCommand::class);
+        \WP_CLI::add_command('plugin-name', BusinessCardCommand::class);
     }
 }

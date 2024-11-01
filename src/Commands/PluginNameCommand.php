@@ -1,8 +1,9 @@
 <?php
 
-namespace PluginNamespace\Commands;
+namespace YDTBC\Commands;
 
-class PluginNameCommand extends \WP_CLI_Command
+class BusinessCardCommand extends \WP_CLI_Command
+
 {
     public function __construct()
     {

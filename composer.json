@@ -1,26 +1,26 @@
 {
-  "name": "roots/clover",
+  "name": "ydtb-wp/ydtb-business-card",
   "type": "wordpress-plugin",
   "license": "MIT",
-  "description": "WordPress starter plugin",
-  "homepage": "https://roots.io/",
+  "description": "Business Card Linktree for BuddyBoss",
+  "homepage": "https://yourdigitaltoolbox.com",
   "authors": [
     {
-      "name": "Roots",
-      "email": "team@roots.io",
-      "homepage": "https://github.com/roots"
+      "name": "John Kraczek",
+      "email": "john@yourdigitaltoolbox.com",
+      "homepage": "https://yourdigitaltoolbox.com"
     }
   ],
   "keywords": [
     "wordpress"
   ],
   "support": {
-    "issues": "https://github.com/roots/clover/issues",
-    "forum": "https://discourse.roots.io/"
+    "issues": "https://github.com/ydtb-wp/ydtb-business-card/issues",
+    "forum": "https://yourdigitaltoolbox.com"
   },
   "autoload": {
     "psr-4": {
-      "PluginNamespace\\": "src/"
+      "YDTBC\\": "src/"
     },
     "files": [
       "src/helpers.php"
@@ -28,7 +28,7 @@
   },
   "autoload-dev": {
     "psr-4": {
-      "PluginNamespace\\Tests\\": "tests/"
+      "YDTBC\\Tests\\": "tests/"
     }
   },
   "require": {
