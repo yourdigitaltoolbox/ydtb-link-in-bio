@@ -1,6 +1,6 @@
 {
   "name": "ydtb-wp/ydtb-link-in-bio",
-  "version": "0.0.2",
+  "version": "0.0.3-0",
   "license": "MIT",
   "private": true,
   "description": "Business Card Linktree for BuddyBoss",
@@ -33,7 +33,9 @@
   "dependencies": {
     "@roots/bud-react": "^6.23.3",
     "@roots/bud-tailwindcss": "^6.23.3",
-    "@roots/wordpress-hmr": "6.23.3"
+    "@roots/wordpress-hmr": "6.23.3",
+    "caniuse-lite": "",
+    "react-router-dom": "^6.27.0"
   },
   "browserslist": [
     "extends @roots/browserslist-config"

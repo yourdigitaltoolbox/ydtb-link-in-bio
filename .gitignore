@@ -2,8 +2,10 @@
 node_modules
 yarn-error.log
 npm-debug.log
-vendor
+vendor/*
 /test-results/
 /playwright-report/
 /playwright/.cache/
 .env
+dist/*
+
