@@ -11,7 +11,7 @@ return [
         | be prepended when using Clover's asset management system. Change this if
         | you are pushing to a CDN.
         |
-        */
+         */
 
         'uri' => plugins_url('public', __FILE__),
 
@@ -23,9 +23,9 @@ return [
         | The asset manifest contains relative paths to your assets. This path will
         | be prepended when using Clover's asset management system.
         |
-        */
+         */
 
-        'path' => dirname(__DIR__).'/public',
+        'path' => dirname(__DIR__) . '/public',
 
         /*
         |--------------------------------------------------------------------------
@@ -37,9 +37,9 @@ return [
         | useful for statically referencing assets with dynamically changing names
         | as in the case of cache-busting.
         |
-        */
+         */
 
-        'manifest' => dirname(__DIR__).'/public/manifest.json',
+        'manifest' => dirname(__DIR__) . '/public/manifest.json',
     ],
 
     /*
@@ -50,7 +50,7 @@ return [
     | Most template systems load templates from disk. Here you may specify
     | the location on your disk where your views are located.
     |
-    */
+     */
 
-    'views' => dirname(__DIR__).'/resources/views',
+    'views' => dirname(__DIR__) . '/resources/views',
 ];

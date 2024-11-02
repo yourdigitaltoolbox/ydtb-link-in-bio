@@ -1,0 +1,15 @@
+/*
+This stylesheet is loaded in the WordPress dashboard only.
+It is required for adding icons to your admin settings.
+*/
+
+/* Integration Tab Icon */
+.bp-admin-card.section-ydtblib_settings_section h2:before {
+  content: "";
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  background-image: url("images/feather.svg");
+  background-size: 18px 18px;
+  margin-right: 10px;
+}

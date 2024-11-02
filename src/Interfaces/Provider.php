@@ -1,6 +1,6 @@
 <?php
 
-namespace YDTBC\Providers;
+namespace YDTBLIB\Interfaces;
 
 interface Provider
 {

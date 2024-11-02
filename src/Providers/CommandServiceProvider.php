@@ -1,8 +1,9 @@
 <?php
 
-namespace YDTBC\Providers;
+namespace YDTBLIB\Providers;
 
-use YDTBC\Commands\BusinessCardCommand;
+use YDTBLIB\Commands\BusinessCardCommand;
+use YDTBLIB\Interfaces\Provider;
 
 class CommandServiceProvider implements Provider
 {

@@ -1,6 +1,8 @@
 <?php
 
-namespace YDTBC\Providers;
+namespace YDTBLIB\Providers;
+
+use YDTBLIB\Interfaces\Provider;
 
 class ApiServiceProvider implements Provider
 {

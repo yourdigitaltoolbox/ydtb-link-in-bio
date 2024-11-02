@@ -1,5 +1,5 @@
 {
-  "name": "ydtb-wp/ydtb-business-card",
+  "name": "ydtb-wp/ydtb-link-in-bio",
   "type": "wordpress-plugin",
   "license": "MIT",
   "description": "Business Card Linktree for BuddyBoss",
@@ -12,7 +12,10 @@
     }
   ],
   "keywords": [
-    "wordpress"
+    "wordpress",
+    "buddyboss",
+    "linktree",
+    "business card"
   ],
   "support": {
     "issues": "https://github.com/ydtb-wp/ydtb-business-card/issues",
@@ -20,15 +23,15 @@
   },
   "autoload": {
     "psr-4": {
-      "YDTBC\\": "src/"
+      "YDTBLIB\\": "src/"
     },
     "files": [
-      "src/helpers.php"
+      "src/utils/helpers.php"
     ]
   },
   "autoload-dev": {
     "psr-4": {
-      "YDTBC\\Tests\\": "tests/"
+      "YDTBLIB\\Tests\\": "tests/"
     }
   },
   "require": {

@@ -1,6 +1,6 @@
 <?php
 
-namespace YDTBC\Commands;
+namespace YDTBLIB\Commands;
 
 class BusinessCardCommand extends \WP_CLI_Command
 
