@@ -9,7 +9,6 @@
     "plugins": {
         "@release-it/bumper": {
             "out": [
-                "composer.json",
                 {
                     "file": "ydtb-link-in-bio.php",
                     "type": "text/php"
