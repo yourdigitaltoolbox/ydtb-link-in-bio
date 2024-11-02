@@ -19,15 +19,19 @@
   ],
   "scripts": {
     "build": "bud build",
-    "dev": "bud dev"
+    "dev": "bud dev",
+    "release": "release-it"
   },
   "devDependencies": {
     "@playwright/test": "^1.26.0",
     "@roots/bud": "6.23.3",
     "@roots/bud-preset-recommend": "6.23.3",
-    "@roots/bud-preset-wordpress": "6.23.3"
+    "@roots/bud-preset-wordpress": "6.23.3",
+    "release-it": "^17.10.0"
   },
   "dependencies": {
+    "@roots/bud-react": "^6.23.3",
+    "@roots/bud-tailwindcss": "^6.23.3",
     "@roots/wordpress-hmr": "6.23.3"
   },
   "browserslist": [
