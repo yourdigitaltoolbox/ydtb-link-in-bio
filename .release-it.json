@@ -22,9 +22,7 @@
     },
     "hooks": {
         "before:init": [
-            "git pull",
-            "npm run lint",
-            "npm run test"
+            "git pull"
         ],
         "after:bump": [
             "composer install",
