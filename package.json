@@ -24,6 +24,7 @@
   },
   "devDependencies": {
     "@playwright/test": "^1.26.0",
+    "@release-it/bumper": "^6.0.1",
     "@roots/bud": "6.23.3",
     "@roots/bud-preset-recommend": "6.23.3",
     "@roots/bud-preset-wordpress": "6.23.3",
