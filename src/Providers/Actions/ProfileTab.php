@@ -47,6 +47,16 @@ class ProfileTab implements Provider
         echo ('<div id="ydtblib-link-in-bio-root" group-separator-block"></div>');
     }
 
+    public function getFileName($path)
+    {
+        if (preg_match(pattern: '/\/([a-zA-Z0-9]+)\./', subject: $path, matches: $matches)) {
+            $script_name = "ydtblib-" . $matches[1];
+        } else {
+            $script_name = $path;
+        }
+        return $script_name;
+    }
+
     public function load_assets()
     {
         $entrypoints_manifest = $this->config->plugin_path . "dist/entrypoints.json";
@@ -58,37 +68,44 @@ class ProfileTab implements Provider
         $entrypoints = json_decode(file_get_contents($entrypoints_manifest));
 
         foreach ($entrypoints->client->js as $js) {
+
+
+
             wp_enqueue_script(
-                $js,
+                $this->getFileName(path: $js),
+                // $js,
                 $this->config->plugin_url . "dist/{$js}",
                 $entrypoints->client->dependencies,
                 false,
                 true,
             );
         }
-        foreach ($entrypoints->client->css as $css) {
 
+        foreach ($entrypoints->client->css as $css) {
             if (preg_match('/client\.([a-z0-9]*?)\./', $css, $matches)) {
                 $hash = $matches[1];
             } else {
                 $hash = false;
             }
-
-            wp_enqueue_style(
-                'plugin-tools-server',
-                trailingslashit($this->config->plugin_url) . "dist/{$css}",
-                array(),
-                $hash,
-                'all',
-            );
+            if (isset($css)) {
+                $cssURL = trailingslashit($this->config->plugin_url) . "dist/{$css}";
+                wp_enqueue_style(
+                    'plugin-tools-server',
+                    $cssURL,
+                    array(),
+                    $hash,
+                    'all',
+                );
+            }
         }
+
         foreach ($entrypoints->client->js as $js) {
             if ($js === "js/client.js" || preg_match("/^js\/client\.[a-zA-Z0-9]+\.js$/", $js)) {
-                wp_localize_script($js, 'ydtblib_link_in_bio_global', [
+                wp_localize_script($this->getFileName(path: $js), 'ydtblib_link_in_bio_global', [
                     'nonce' => wp_create_nonce('wp_rest'),
                     'root' => esc_url_raw($this->config->plugin_url),
                     'rest' => esc_url_raw(rest_url()),
-                    "cssHash" => $hash,
+                    "cssURL" => $cssURL,
                     "memberId" => bp_displayed_user_id(),
                     "loggedInMemberId" => bp_loggedin_user_id(),
                 ]);

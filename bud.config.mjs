@@ -1,9 +1,18 @@
 /**
  * @param {import('@roots/bud').Bud} bud
  */
-export default (bud) => {
+
+
+export default async (bud) => {
   bud.hash()
   bud.alias(`@client`, bud.path(`@src`, `client`))
   bud.entry(`client`, [`@client/index.tsx`, `@client/styles/client.css`])
   bud.proxy('https://wp.dev')
+  bud.watch(['./src/client/', './src/client/**/*'])
+
+  bud.build.items.precss.setLoader('minicss');
+  bud.hooks.action('build.before', (bud) => {
+    bud.extensions.get('@roots/bud-extensions/mini-css-extract-plugin').enable(true);
+  });
+
 };
