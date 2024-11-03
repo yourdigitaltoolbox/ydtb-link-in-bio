@@ -5,8 +5,8 @@ namespace YDTBLIB;
 use YDTBLIB\Interfaces\Provider;
 use YDTBLIB\Providers\ApiServiceProvider;
 use YDTBLIB\Providers\CommandServiceProvider;
-use YDTBLIB\Providers\ProfileTabProvider;
 use YDTBLIB\Providers\SettingsServiceProvider;
+use YDTBLIB\Providers\Actions\ProfileTab;
 
 class Plugin implements Provider
 {
@@ -27,7 +27,7 @@ class Plugin implements Provider
             ApiServiceProvider::class,
             CommandServiceProvider::class,
             SettingsServiceProvider::class,
-            ProfileTabProvider::class,
+            ProfileTab::class,
         ];
     }
 

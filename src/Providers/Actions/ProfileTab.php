@@ -2,14 +2,15 @@
 
 namespace YDTBLIB\Providers\Actions;
 
-class ProfileTabProvider implements Provider
+use YDTBLIB\Utils\Config;
+use YDTBLIB\Interfaces\Provider;
+
+class ProfileTab implements Provider
 {
-    private $var;
     private $config;
 
-    public function __construct(Type $var = null)
+    public function __construct()
     {
-        $this->var = $var;
         $this->config = Config::get_config(YDTBLIB_PLUGIN_FILE);
     }
 

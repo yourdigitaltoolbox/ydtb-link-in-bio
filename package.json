@@ -34,6 +34,7 @@
     "@roots/bud-react": "^6.23.3",
     "@roots/bud-tailwindcss": "^6.23.3",
     "@roots/wordpress-hmr": "6.23.3",
+    "@types/react": "^18.3.12",
     "caniuse-lite": "",
     "react-router-dom": "^6.27.0"
   },
