@@ -1,38 +1,39 @@
 {
     "$schema": "https://unpkg.com/release-it@17/schema/release-it.json",
     "git": {
-        "requireBranch": "master",
-        "commitMessage": "chore: release v${version}"
+        "commitMessage": "chore: release v${version}",
+        "tag": false,
+        "push": false,
+        "commit": false,
+        "changelog": "npx auto-changelog --stdout --commit-limit false -u --template https://raw.githubusercontent.com/release-it/release-it/main/templates/changelog-compact.hbs"
     },
     "github": {
         "release": true,
-        "assets": [
-            "config/*",
-            "dist/*",
-            "node_modules/*",
-            "src/*",
-            "vendor/*",
-            "license.md",
-            "readme.md",
-            "composer.json",
-            "composer.lock",
-            "bud.config.mjs",
-            "ydtb-link-in-bio.php"
-        ]
+        "comments": {
+            "submit": true,
+            "issue": ":rocket: _This issue has been resolved in v${version}. See [${releaseName}](${releaseUrl}) for release notes._",
+            "pr": ":rocket: _This pull request is included in v${version}. See [${releaseName}](${releaseUrl}) for release notes._"
+        }
     },
     "hooks": {
         "before:init": [
             "git pull"
         ],
-        "after:bump": [
+        "after:bump": "npx auto-changelog -p",
+        "before:release": [
             "composer install",
-            "bun install",
             "bun run build",
+            "git add . --update",
+            "git commit -m 'chore: release v${version}'",
             "git checkout --detach",
-            "git add dist/* node_modules/* vendor/* -f"
+            "git add dist/* vendor/* -f",
+            "git commit -m 'chore: release v${version}'",
+            "git tag ${version}",
+            "git push origin ${version} "
         ],
         "after:release": [
-            "git checkout master"
+            "git checkout master",
+            "git push"
         ]
     },
     "plugins": {
