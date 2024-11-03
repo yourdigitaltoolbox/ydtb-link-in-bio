@@ -7,7 +7,7 @@ use YDTBLIB\Utils\BuddyBossPlatformCheck;
  * Description: Allow members to create a custom link-in-bio page with their profile links.
  * Author:      John Kraczek
  * Author URI:  https://yourdigitaltoolbox.com/
- * Version:     0.0.3-0
+ * Version:     0.0.3-1
  * Text Domain: ydtb-link-in-bio
  * Domain Path: /languages/
  * License:     GPLv3 or later (license.txt)
