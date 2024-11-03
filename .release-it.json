@@ -27,7 +27,12 @@
         "after:bump": [
             "composer install",
             "bun install",
-            "bun run build"
+            "bun run build",
+            "git checkout --detach",
+            "git add dist/* node_modules/* vendor/* -f"
+        ],
+        "after:release": [
+            "git checkout master"
         ]
     },
     "plugins": {
