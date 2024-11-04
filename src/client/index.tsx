@@ -1,14 +1,16 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
 
-import App from "./App";
-
 import { HashRouter } from "react-router-dom";
+import { Context } from "~/contexts";
+import App from "./App";
 
 declare const ydtblib_link_in_bio_global: {
   root: string;
   cssURL: string;
+  memberId: string;
 };
+
 const container = document.querySelector("#ydtblib-link-in-bio-root");
 const shadowContainer = container!.attachShadow({ mode: "open" });
 const shadowRootElement = document.createElement("div");
@@ -24,6 +26,8 @@ shadowContainer.appendChild(shadowRootElement);
 const root = createRoot(shadowRootElement);
 root.render(
   <HashRouter>
-    <App />
+    <Context>
+      <App />
+    </Context>
   </HashRouter>
 );

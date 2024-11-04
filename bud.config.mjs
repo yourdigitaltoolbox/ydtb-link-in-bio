@@ -5,8 +5,8 @@
 
 export default async (bud) => {
   bud.hash()
-  bud.alias(`@client`, bud.path(`@src`, `client`))
-  bud.entry(`client`, [`@client/index.tsx`, `@client/styles/client.css`])
+  bud.alias(`~`, bud.path(`@src`, `client`))
+  bud.entry(`client`, [`~/index.tsx`, `~/styles/client.css`])
   bud.proxy('https://wp.dev')
   bud.watch(['./src/client/', './src/client/**/*'])
 
