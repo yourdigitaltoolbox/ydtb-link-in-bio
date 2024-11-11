@@ -1,6 +1,5 @@
 <?php
 
-use YDTBLIB\Utils\BuddyBossPlatformCheck;
 /**
  * Plugin Name: BuddyBoss Member Link-In-Bio
  * Plugin URI:  https://yourdigitaltoolbox.com/
@@ -16,6 +15,8 @@ use YDTBLIB\Utils\BuddyBossPlatformCheck;
 // Exit if accessed directly
 defined('ABSPATH') || exit;
 
+
+use YDTBLIB\Utils\BuddyBossPlatformCheck;
 require_once __DIR__ . '/vendor/autoload.php';
 
 /**

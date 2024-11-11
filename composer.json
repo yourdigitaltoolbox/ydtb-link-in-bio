@@ -24,10 +24,7 @@
   "autoload": {
     "psr-4": {
       "YDTBLIB\\": "src/"
-    },
-    "files": [
-      "src/utils/helpers.php"
-    ]
+    }
   },
   "autoload-dev": {
     "psr-4": {
@@ -36,12 +33,5 @@
   },
   "require": {
     "php": "^8.0"
-  },
-  "scripts": {
-    "lint": "pint",
-    "test": "echo 'The road to hell is paved with good intentions.'"
-  },
-  "require-dev": {
-    "laravel/pint": "^1.2"
   }
 }

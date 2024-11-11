@@ -47,6 +47,12 @@ class ProfileTab implements Provider
         echo ('<div id="ydtblib-link-in-bio-root" group-separator-block"></div>');
     }
 
+    /**
+     * The purpose of this function is to name the asset to something more readable/maintainable in the browser.
+     * If we can seem to do that with the asset name, we will use the path.
+     * @param mixed $path
+     * @return mixed
+     */
     public function getFileName($path)
     {
         if (preg_match(pattern: '/\/([a-zA-Z0-9]+)\./', subject: $path, matches: $matches)) {
@@ -57,7 +63,12 @@ class ProfileTab implements Provider
         return $script_name;
     }
 
-    public function load_assets()
+    /**
+     * retrieve the assets from the entrypoints.json file and load them into the front-end. 
+     * @throws \Exception
+     * @return void
+     */
+    public function load_assets(): void
     {
         $entrypoints_manifest = $this->config->plugin_path . "dist/entrypoints.json";
 
@@ -68,9 +79,6 @@ class ProfileTab implements Provider
         $entrypoints = json_decode(file_get_contents($entrypoints_manifest));
 
         foreach ($entrypoints->client->js as $js) {
-
-
-
             wp_enqueue_script(
                 $this->getFileName(path: $js),
                 // $js,

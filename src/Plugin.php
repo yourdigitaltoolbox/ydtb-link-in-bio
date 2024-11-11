@@ -21,6 +21,11 @@ class Plugin implements Provider
         //
     }
 
+    public function plugin_checks()
+    {
+
+    }
+
     protected function providers()
     {
         return [
