@@ -7,7 +7,7 @@ const App = () => {
       <p>My first React app!</p>
       <p className="text-red-700">Test Text</p>
     </div>
-  );
+  ); 
 };
 
 export default App;

@@ -68,7 +68,7 @@ class ProfileTab
      */
     public function load_assets(): void
     {
-        $entrypoints_manifest = Config::get(key: 'plugin_path') . "dist/entrypoints.json";
+        $entrypoints_manifest = Config::get(key: 'plugin_url') . "dist/entrypoints.json";
 
         if (!$entrypoints_manifest) {
             throw new \Exception('Example: you must run `yarn build` before using this plugin.');
@@ -77,13 +77,14 @@ class ProfileTab
         $entrypoints = json_decode(file_get_contents($entrypoints_manifest));
 
         foreach ($entrypoints->client->js as $js) {
+            $script_url = Config::get(key: 'plugin_url') . "dist/{$js}";
             wp_enqueue_script(
-                $this->getFileName(path: $js),
+                handle: $this->getFileName(path: $js),
                 // $js,
-                Config::get(key: 'plugin_url') . "dist/{$js}",
-                $entrypoints->client->dependencies,
-                false,
-                true,
+                src: $script_url,
+                deps: $entrypoints->client->dependencies,
+                ver: false,
+                args: true,
             );
         }
 

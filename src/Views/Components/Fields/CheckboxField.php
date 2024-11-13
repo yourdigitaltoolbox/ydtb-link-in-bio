@@ -1,5 +1,5 @@
 <?php
-namespace YDTBLIB\Providers\Settings\Fields;
+namespace YDTBLIB\Views\Components\Fields;
 
 use YDTBLIB\Interfaces\SettingsFieldInterface;
 
@@ -42,11 +42,7 @@ class CheckboxField implements SettingsFieldInterface
     {
         $value = $this->get_value();
         ?>
-        <input name="<?php echo esc_attr($this->id); ?>"
-               id="<?php echo esc_attr($this->id); ?>"
-               type="checkbox"
-               value="1" <?php checked($value, 1);?>
-        />
+        <input name="<?php echo esc_attr($this->id); ?>" id="<?php echo esc_attr($this->id); ?>" type="checkbox" value="1" <?php checked($value, 1); ?> />
         <label for="<?php echo esc_attr($this->id); ?>">
             <?php echo esc_html($this->title); ?>
         </label>
@@ -54,7 +50,7 @@ class CheckboxField implements SettingsFieldInterface
             <?php echo esc_html($this->description); ?>
         </p>
         <?php
-}
+    }
 
     public function sanitize($value)
     {

@@ -7,7 +7,7 @@ export default async (bud) => {
   bud.hash()
   bud.alias(`~`, bud.path(`@src`, `client`))
   bud.entry(`client`, [`~/index.tsx`, `~/styles/client.css`])
-  bud.proxy('https://wp.dev')
+  bud.proxy('https://dev-ydtb.link/')
   bud.watch(['./src/client/', './src/client/**/*'])
 
   bud.build.items.precss.setLoader('minicss');

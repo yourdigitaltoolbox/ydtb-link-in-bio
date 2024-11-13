@@ -1,3 +1,7 @@
 {
-  "php.stubs": ["pcntl", "wordpress", "*"]
+    "php.stubs": [
+        "pcntl",
+        "wordpress",
+        "*"
+    ]
 }

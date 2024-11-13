@@ -1,5 +1,5 @@
 <?php
-namespace YDTBLIB\Providers\Settings\Fields;
+namespace YDTBLIB\Views\Components\Fields;
 
 use YDTBLIB\Interfaces\SettingsFieldInterface;
 
@@ -46,16 +46,16 @@ class DropdownField implements SettingsFieldInterface
         ?>
         <select name="<?php echo esc_attr($this->id); ?>" id="<?php echo esc_attr($this->id); ?>" style="min-width: 50%;">
             <?php foreach ($this->options as $option_value => $option_label): ?>
-                <option value="<?php echo esc_attr($option_value); ?>" <?php selected($value, $option_value);?>>
+                <option value="<?php echo esc_attr($option_value); ?>" <?php selected($value, $option_value); ?>>
                     <?php echo esc_html($option_label); ?>
                 </option>
-            <?php endforeach;?>
+            <?php endforeach; ?>
         </select>
         <p class="description">
             <?php echo esc_html($this->description); ?>
         </p>
         <?php
-}
+    }
 
     public function sanitize($value)
     {

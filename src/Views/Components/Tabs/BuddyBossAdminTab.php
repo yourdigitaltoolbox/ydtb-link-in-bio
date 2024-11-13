@@ -1,10 +1,10 @@
 <?php
 
-namespace YDTBLIB\Providers\Settings;
+namespace YDTBLIB\Views\Components\Tabs;
 
-use YDTBLIB\PROVIDERS\Settings\Fields\CheckboxField;
-use YDTBLIB\PROVIDERS\Settings\Fields\DropdownField;
-use YDTBLIB\PROVIDERS\Settings\Fields\StringField;
+use YDTBLIB\Views\Components\Fields\CheckboxField;
+use YDTBLIB\Views\Components\Fields\StringField;
+use YDTBLIB\Views\Components\Fields\DropdownField;
 
 /**
  * Compatibility integration admin tab
@@ -21,7 +21,6 @@ defined('ABSPATH') || exit;
  * @since BuddyBoss 1.1.5
  */
 class BuddyBossAdminTab extends \BP_Admin_Integration_tab
-
 {
     private $fields = [];
     public function initialize()
@@ -106,22 +105,22 @@ class BuddyBossAdminTab extends \BP_Admin_Integration_tab
         <p style="margin-top: -8px;">
             <a class="button" href="
             <?php
-echo esc_url(
-            bp_get_admin_url(
-                add_query_arg(
-                    array(
-                        'page' => 'abc123',
-                        'article' => 'abc123',
-                    ),
-                    'admin.php'
+            echo esc_url(
+                bp_get_admin_url(
+                    add_query_arg(
+                        array(
+                            'page' => 'abc123',
+                            'article' => 'abc123',
+                        ),
+                        'admin.php'
+                    )
                 )
-            )
-        );
-        ?>
-            "><?php esc_html_e('View Tutorial', 'ydtb-link-in-bio');?></a>
+            );
+            ?>
+            "><?php esc_html_e('View Tutorial', 'ydtb-link-in-bio'); ?></a>
         </p>
         <?php
-}
+    }
 
     /**
      * Register setting fields

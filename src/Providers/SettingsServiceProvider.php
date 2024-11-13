@@ -3,7 +3,7 @@
 namespace YDTBLIB\Providers;
 
 use YDTBLIB\Interfaces\Provider;
-use YDTBLIB\Providers\Settings\BuddyBossIntegration;
+use YDTBLIB\Views\Components\Tabs\BuddyBossIntegration;
 
 class SettingsServiceProvider implements Provider
 {

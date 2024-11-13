@@ -1,5 +1,5 @@
 <?php
-namespace YDTBLIB\Providers\Settings\Fields;
+namespace YDTBLIB\Views\Components\Fields;
 
 use YDTBLIB\Interfaces\SettingsFieldInterface;
 
@@ -42,17 +42,13 @@ class StringField implements SettingsFieldInterface
     {
         $value = $this->get_value();
         ?>
-        <input name="<?php echo esc_attr($this->id); ?>"
-               id="<?php echo esc_attr($this->id); ?>"
-               type="text"
-               value="<?php echo esc_attr($value); ?>"
-               style="min-width: 50%;"
-        />
+        <input name="<?php echo esc_attr($this->id); ?>" id="<?php echo esc_attr($this->id); ?>" type="text"
+            value="<?php echo esc_attr($value); ?>" style="min-width: 50%;" />
         <p class="description">
             <?php echo esc_html($this->description); ?>
         </p>
         <?php
-}
+    }
 
     public function sanitize($value)
     {

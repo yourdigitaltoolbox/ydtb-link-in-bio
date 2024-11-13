@@ -1,9 +1,9 @@
 <?php
 
-namespace YDTBLIB\Providers\Settings;
+namespace YDTBLIB\Views\Components\Tabs;
 
-use YDTBLIB\Providers\Settings\BuddyBossAdminTab;
 use YDTBLIB\Utils\Config;
+use YDTBLIB\Views\Components\Tabs\BuddyBossAdminTab;
 
 /**
  * BuddyBoss Compatibility Integration Class.
