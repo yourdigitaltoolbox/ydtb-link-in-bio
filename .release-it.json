@@ -2,45 +2,22 @@
     "$schema": "https://unpkg.com/release-it@17/schema/release-it.json",
     "git": {
         "commitMessage": "chore: release v${version}",
-        "tag": false,
-        "push": false,
-        "commit": false,
-        "changelog": "npx auto-changelog --stdout --commit-limit false -u --template https://raw.githubusercontent.com/release-it/release-it/main/templates/changelog-compact.hbs"
-    },
-    "github": {
-        "release": true,
-        "comments": {
-            "submit": true,
-            "issue": ":rocket: _This issue has been resolved in v${version}. See [${releaseName}](${releaseUrl}) for release notes._",
-            "pr": ":rocket: _This pull request is included in v${version}. See [${releaseName}](${releaseUrl}) for release notes._"
-        }
+        "tag": true,
+        "push": true,
+        "commit": true,
+        "changelog": "npx auto-changelog --stdout --commit-limit 10 -u --template https://raw.githubusercontent.com/release-it/release-it/main/templates/changelog-compact.hbs"
     },
     "hooks": {
-        "before:init": [
-            "git pull"
-        ],
-        "after:bump": "npx auto-changelog -p",
-        "before:release": [
-            "composer install",
-            "bun run build",
-            "git add . --update",
-            "git commit -m 'chore: release v${version}'",
-            "git checkout --detach",
-            "git add dist/* vendor/* -f",
-            "git commit -m 'chore: release v${version}'",
-            "git tag ${version}",
-            "git push origin ${version} "
-        ],
-        "after:release": [
-            "git checkout master",
-            "git push"
-        ]
+        "after:bump": "npx auto-changelog -p --commit-limit 10"
+    },
+    "github": {
+        "release": false
     },
     "plugins": {
         "@release-it/bumper": {
             "out": [
                 {
-                    "file": "ydtb-link-in-bio.php",
+                    "file": "plugin-loader.php",
                     "type": "text/php"
                 }
             ]

@@ -6,24 +6,25 @@ use YDTBLIB\Interfaces\Provider;
 use YDTBLIB\Providers\ApiServiceProvider;
 use YDTBLIB\Providers\CommandServiceProvider;
 use YDTBLIB\Providers\SettingsServiceProvider;
-use YDTBLIB\Providers\Actions\ProfileTab;
+use YDTBLIB\Views\ProfileTab;
+
+use YDTBLIB\Utils\BuddyBossPlatformCheck;
+use YDTBLIB\Utils\Updater;
 
 class Plugin implements Provider
 {
 
     public function __construct()
     {
-        add_action('init', [$this, 'boot']);
-    }
-
-    public function boot()
-    {
-        //
+        if (!$this->plugin_checks()) {
+            return;
+        }
+        $this->register();
     }
 
     public function plugin_checks()
     {
-
+        return BuddyBossPlatformCheck::check();
     }
 
     protected function providers()
@@ -33,6 +34,7 @@ class Plugin implements Provider
             CommandServiceProvider::class,
             SettingsServiceProvider::class,
             ProfileTab::class,
+            Updater::class
         ];
     }
 

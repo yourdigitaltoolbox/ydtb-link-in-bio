@@ -1,29 +1,27 @@
 <?php
 
 namespace YDTBLIB\Utils;
-
 class Config
 {
-    private static $instance = null;
-
-    public $plugin_file;
-    public $plugin_basename;
-    public $plugin_path;
-    public $plugin_url;
-
-    private function __construct($plugin_file)
+    public static function get($key = '', $all = false): array|string
     {
-        $this->plugin_file = $plugin_file;
-        $this->plugin_basename = plugin_basename($plugin_file);
-        $this->plugin_path = plugin_dir_path($plugin_file);
-        $this->plugin_url = plugin_dir_url($plugin_file);
-    }
+        $plugin_folder = trailingslashit(dirname(path: __FILE__, levels: 3));
 
-    public static function get_config($plugin_file)
-    {
-        if (self::$instance === null) {
-            self::$instance = new self($plugin_file);
+        $plugin_file = $plugin_folder . 'ydtb-link-in-bio.php';
+
+        $config = [
+            'plugin_file' => $plugin_file,
+            'plugin_slug' => plugin_basename(file: $plugin_folder),
+            'plugin_path' => plugin_dir_path(file: $plugin_folder),
+            'plugin_url' => plugin_dir_url(file: $plugin_folder),
+            'update_url' => 'https://yourdigitaltoolbox.github.io/ydtb-link-in-bio/manifest.json',
+            'version' => get_file_data($plugin_file, array('Version'), 'plugin')[0]
+        ];
+
+        if ($all) {
+            return $config;
         }
-        return self::$instance;
+
+        return $config[$key] ?? null;
     }
 }

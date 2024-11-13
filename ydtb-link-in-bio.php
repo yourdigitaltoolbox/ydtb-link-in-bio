@@ -15,20 +15,24 @@
 // Exit if accessed directly
 defined('ABSPATH') || exit;
 
+// check if the vendor directory exists, and load it if it does
+// This is the only check that must be done outside of the composer autoloaded classes.
 
-use YDTBLIB\Utils\BuddyBossPlatformCheck;
-require_once __DIR__ . '/vendor/autoload.php';
+$autoload = __DIR__ . '/vendor/autoload.php';
 
-/**
- * Require BuddyBoss Platform
- */
-if (!BuddyBossPlatformCheck::check()) {
-    return;
+if (!file_exists(filename: $autoload)) {
+    add_action(hook_name: 'admin_notices', callback: function (): void {
+        $message = __(text: 'Link In Bio was downloaded from source and has not been built. Please run `composer install` inside the plugin directory <br> OR <br> install a released version of the plugin which will have already been built.', domain: 'ydtb-link-in-bio');
+        echo '<div class="notice notice-error">';
+        echo '<p>' . $message . '</p>';
+        echo '</div>';
+    });
+    return false;
 }
 
-if (!defined('YDTBLIB_PLUGIN_FILE')) {
-    define('YDTBLIB_PLUGIN_FILE', __FILE__);
-}
+require_once $autoload;
 
-$ydtb_lib = new YDTBLIB\Plugin();
-$ydtb_lib->register();
+use YDTBLIB\Plugin;
+
+// Load the plugin
+new Plugin();

@@ -20,13 +20,10 @@ defined('ABSPATH') || exit;
  * @since BuddyBoss 1.1.5
  */
 class BuddyBossIntegration extends \BP_Integration
-
 {
-    private $config;
 
     public function __construct()
     {
-        $this->config = Config::get_config(YDTBLIB_PLUGIN_FILE);
         $this->start(
             'member-link-in-bio',
             __('Member Link In Bio', 'ydtb-link-in-bio'),
@@ -49,10 +46,10 @@ class BuddyBossIntegration extends \BP_Integration
     public function enqueue_admin_script()
     {
         // echo 'Enqueue admin script';
-        // echo $this->config->plugin_url . 'public/images/';
+        // echo Config::get(key: 'plugin_url') . 'public/images/';
         // die();
 
-        wp_enqueue_style('ydtblib-addon-admin-css', $this->config->plugin_url . 'public/style.css');
+        wp_enqueue_style('ydtblib-addon-admin-css', Config::get(key: 'plugin_url') . 'public/style.css');
     }
 
     /**
@@ -64,8 +61,8 @@ class BuddyBossIntegration extends \BP_Integration
             "bp-{$this->id}",
             $this->name,
             array(
-                'root_path' => $this->config->plugin_path . '/integration',
-                'root_url' => $this->config->plugin_url . '/integration',
+                'root_path' => Config::get(key: 'plugin_path') . '/integration',
+                'root_url' => Config::get(key: 'plugin_url') . '/integration',
                 'required_plugin' => $this->required_plugin,
             )
         );

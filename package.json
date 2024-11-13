@@ -1,16 +1,10 @@
 {
-  "name": "ydtb-wp/ydtb-link-in-bio",
+  "name": "ydtb-link-in-bio",
   "version": "0.0.3",
-  "license": "MIT",
+  "license": "GPL-3.0-or-later",
   "private": true,
   "description": "Business Card Linktree for BuddyBoss",
   "homepage": "https://yourdigitaltoolbox.com",
-  "licenses": [
-    {
-      "type": "MIT",
-      "url": "http://opensource.org/licenses/MIT"
-    }
-  ],
   "authors": [
     {
       "name": "John Kraczek",
@@ -19,16 +13,13 @@
   ],
   "scripts": {
     "build": "bud build",
-    "dev": "bud dev",
-    "release": "dotenv release-it --only-version"
+    "dev": "bud dev"
   },
   "devDependencies": {
-    "@playwright/test": "^1.26.0",
     "@release-it/bumper": "^6.0.1",
     "@roots/bud": "6.23.3",
     "@roots/bud-preset-recommend": "6.23.3",
     "@roots/bud-preset-wordpress": "6.23.3",
-    "dotenv-cli": "^7.4.2",
     "release-it": "^17.10.0"
   },
   "dependencies": {

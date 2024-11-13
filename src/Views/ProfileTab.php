@@ -1,22 +1,20 @@
 <?php
 
-namespace YDTBLIB\Providers\Actions;
+namespace YDTBLIB\Views;
 
 use YDTBLIB\Utils\Config;
-use YDTBLIB\Interfaces\Provider;
 
-class ProfileTab implements Provider
+class ProfileTab
 {
-    private $config;
 
     public function __construct()
     {
-        $this->config = Config::get_config(YDTBLIB_PLUGIN_FILE);
+        add_action('bp_setup_nav', [$this, 'add_profile_tab']);
     }
 
     public function register()
     {
-        add_action('bp_setup_nav', [$this, 'add_profile_tab']);
+
     }
 
     public function add_profile_tab()
@@ -70,7 +68,7 @@ class ProfileTab implements Provider
      */
     public function load_assets(): void
     {
-        $entrypoints_manifest = $this->config->plugin_path . "dist/entrypoints.json";
+        $entrypoints_manifest = Config::get(key: 'plugin_path') . "dist/entrypoints.json";
 
         if (!$entrypoints_manifest) {
             throw new \Exception('Example: you must run `yarn build` before using this plugin.');
@@ -82,7 +80,7 @@ class ProfileTab implements Provider
             wp_enqueue_script(
                 $this->getFileName(path: $js),
                 // $js,
-                $this->config->plugin_url . "dist/{$js}",
+                Config::get(key: 'plugin_url') . "dist/{$js}",
                 $entrypoints->client->dependencies,
                 false,
                 true,
@@ -96,7 +94,7 @@ class ProfileTab implements Provider
                 $hash = false;
             }
             if (isset($css)) {
-                $cssURL = trailingslashit($this->config->plugin_url) . "dist/{$css}";
+                $cssURL = trailingslashit(Config::get(key: 'plugin_url')) . "dist/{$css}";
                 wp_enqueue_style(
                     'plugin-tools-server',
                     $cssURL,
@@ -111,7 +109,7 @@ class ProfileTab implements Provider
             if ($js === "js/client.js" || preg_match("/^js\/client\.[a-zA-Z0-9]+\.js$/", $js)) {
                 wp_localize_script($this->getFileName(path: $js), 'ydtblib_link_in_bio_global', [
                     'nonce' => wp_create_nonce('wp_rest'),
-                    'root' => esc_url_raw($this->config->plugin_url),
+                    'root' => esc_url_raw(Config::get(key: 'plugin_url')),
                     'rest' => esc_url_raw(rest_url()),
                     "cssURL" => $cssURL,
                     "memberId" => bp_displayed_user_id(),
