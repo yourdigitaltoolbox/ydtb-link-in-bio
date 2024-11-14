@@ -6,7 +6,6 @@ use YDTBLIB\Utils\Config;
 
 class ProfileTab
 {
-
     public function __construct()
     {
         add_action('bp_setup_nav', [$this, 'add_profile_tab']);
@@ -20,7 +19,6 @@ class ProfileTab
     public function add_profile_tab()
     {
         global $bp;
-
         bp_core_new_nav_item(array(
             'name' => 'Business Cards',
             'slug' => 'business-cards',
@@ -78,9 +76,9 @@ class ProfileTab
 
         foreach ($entrypoints->client->js as $js) {
             $script_url = Config::get(key: 'plugin_url') . "dist/{$js}";
+            // echo $script_url . "<br>";
             wp_enqueue_script(
                 handle: $this->getFileName(path: $js),
-                // $js,
                 src: $script_url,
                 deps: $entrypoints->client->dependencies,
                 ver: false,
@@ -96,6 +94,7 @@ class ProfileTab
             }
             if (isset($css)) {
                 $cssURL = trailingslashit(Config::get(key: 'plugin_url')) . "dist/{$css}";
+                // echo $cssURL . "<br>";
                 wp_enqueue_style(
                     'plugin-tools-server',
                     $cssURL,

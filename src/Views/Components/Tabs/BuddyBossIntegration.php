@@ -79,7 +79,7 @@ class BuddyBossIntegration extends \BP_Integration
     public function action_links($links, $file)
     {
         // Return normal links if not BuddyPress.
-        if ($this->config->plugin_basename != $file) {
+        if (Config::get(key: 'full_slug') != $file) {
             return $links;
         }
 

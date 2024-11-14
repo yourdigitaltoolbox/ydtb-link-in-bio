@@ -11,6 +11,8 @@ declare const ydtblib_link_in_bio_global: {
   memberId: string;
 };
 
+console.log("ydtblib_link_in_bio_global:", ydtblib_link_in_bio_global);
+
 const container = document.querySelector("#ydtblib-link-in-bio-root");
 const shadowContainer = container!.attachShadow({ mode: "open" });
 const shadowRootElement = document.createElement("div");
